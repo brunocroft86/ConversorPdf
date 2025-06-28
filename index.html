@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Fotos para PDF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-pdf"></i> Conversor para PDF</h1>
+            <p>Converta imagens e arquivos em documentos PDF</p>
+        </header>
+
+        <main>
+            <div class="upload-area" id="dropArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Arraste e solte seus arquivos aqui ou</p>
+                <input type="file" id="fileInput" accept="image/*,.doc,.docx,.txt,.ppt,.pptx,.xls,.xlsx" multiple>
+                <label for="fileInput" class="btn">Selecionar Arquivos</label>
+                <div id="filePreview" class="file-preview"></div>
+            </div>
+
+            <div class="options">
+                <div class="option">
+                    <label for="pdfName">Nome do PDF:</label>
+                    <input type="text" id="pdfName" placeholder="meu-documento">
+                </div>
+                <div class="option">
+                    <label for="pageSize">Tamanho da página:</label>
+                    <select id="pageSize">
+                        <option value="a4">A4</option>
+                        <option value="letter">Carta (EUA)</option>
+                        <option value="a5">A5</option>
+                        <option value="a3">A3</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="pageOrientation">Orientação:</label>
+                    <select id="pageOrientation">
+                        <option value="portrait">Retrato</option>
+                        <option value="landscape">Paisagem</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="marginSize">Margem (mm):</label>
+                    <input type="number" id="marginSize" value="10" min="0">
+                </div>
+            </div>
+
+            <button id="convertBtn" class="btn convert-btn" disabled>
+                <i class="fas fa-file-pdf"></i> Converter para PDF
+            </button>
+
+            <div class="progress-container" id="progressContainer" style="display: none;">
+                <div class="progress-bar" id="progressBar"></div>
+                <span id="progressText">0%</span>
+            </div>
+
+            <a id="downloadLink" class="download-link" style="display: none;">
+                <i class="fas fa-download"></i> Baixar PDF
+            </a>
+        </main>
+
+        <footer>
+            <p>© 2025 Conversor PDF | Desenvolvido com <i class="fas fa-heart"></i> Bruno Galvão</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
